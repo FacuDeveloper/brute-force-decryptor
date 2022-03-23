@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+  </head>
+  <body>
+    <form>
+    <!-- <form method="post" action="app.php"> -->
+      <div class="">
+        <textarea name="message" rows="8" cols="80" id="message"></textarea>
+      </div>
+
+      <!-- <div>
+        <button>Descifrar</button>
+      </div> -->
+
+      <div>
+        <input type="button" value="Descifrar" onclick="decipher();">
+      </div>
+
+      <div>
+        <textarea rows="15" cols="60" disabled="disabled" id="display_result"></textarea>
+      </div>
+    </form>
+
+    <script>
+    function decipher()
+      {
+        var parameters =
+        {
+          "message" : document.getElementById("message").value
+        };
+
+        $.ajax({
+          data: parameters,
+          url: 'app.php',
+          type: 'POST',
+
+          success: function(return_message)
+          {
+            $('#display_result').html(return_message);
+          }
+        });
+      }
+    </script>
+
+  </body>
+</html>
