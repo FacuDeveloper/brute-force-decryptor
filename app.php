@@ -95,6 +95,13 @@
         // echo "<br />Mensaje desencriptado: ";
         echo "Mensaje desencriptado: ";
         echo $given_decrypted_message;
+        echo "\n";
+
+        /* Cada elemento del arreglo $decrypted_messages_generated es un descifrado Cesar, realizado con
+        un desplazamiento, del mensaje de entrada, por lo tanto, para obtener la clave que se utilizo
+        para descifrar efectivamente el mensaje de entrada, se tiene que sumar uno al valor de la variable
+        $key, debido a que empieza valiendo 0 */
+        echo "Clave utilizada: " . ($key + 1);
         exit();
       }
 
